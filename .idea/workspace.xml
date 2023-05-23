@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="ALL" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="8189da92-c3bd-4a98-9ef8-3d0d3a7dacd6" name="更改" comment="add">
+      <change afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Makefile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/docker-compose.yaml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proto/user.proto" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/index.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/controller/controller.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/entity/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/repository/repository.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/repository/user.go" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/user/usecase/usecase.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/client.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/client.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/ent.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/ent.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/hook/hook.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/hook/hook.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/migrate/schema.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/migrate/schema.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/mutation.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/mutation.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/predicate/predicate.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/predicate/predicate.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/runtime.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/runtime.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/schema/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/tx.go" beforeDir="false" afterPath="$PROJECT_DIR$/ent/tx.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user/user.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user/where.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user_create.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user_delete.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user_query.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ent/user_update.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/go.mod" beforeDir="false" afterPath="$PROJECT_DIR$/go.mod" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/helloServer.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/main.go" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Go File" />
+        <option value="Proto File" />
+        <option value="Proto Template" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file:///usr/local/go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="2Pav2OQvCACXCKCfknA2TpFuuOU" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "DefaultGoTemplateProperty": "Go File",
+    "DefaultProtoTemplateProperty": "Proto Template",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.go.formatter.settings.were.checked": "true",
+    "RunOnceActivity.go.migrated.go.modules.settings": "true",
+    "RunOnceActivity.go.modules.go.list.on.any.changes.was.set": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "go.import.settings.migrated": "true",
+    "go.sdk.automatically.set": "true",
+    "last_opened_file_path": "/Users/hzl/GolandProjects/echoDemo",
+    "node.js.detected.package.eslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql"
+    ]
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/example" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/user" />
+      <recent name="$PROJECT_DIR$/proto" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Go 构建.go build echoDemo">
+    <configuration name="go build echoDemo" type="GoApplicationRunConfiguration" factoryName="Go Application" nameIsGenerated="true">
+      <module name="echoDemo" />
+      <working_directory value="$PROJECT_DIR$" />
+      <envs>
+        <env name="LOCAL" value="host=localhost user=postgres password=postgres dbname=postgres port=5432 sslmode=disable" />
+      </envs>
+      <kind value="DIRECTORY" />
+      <package value="echoDemo" />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml" />
+      <method v="2" />
+    </configuration>
+    <configuration name="example/docker-compose.yaml.db: Compose 部署" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="db" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="example/docker-compose.yaml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <list>
+      <item itemvalue="Docker.example/docker-compose.yaml.db: Compose 部署" />
+      <item itemvalue="Go 构建.go build echoDemo" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.example/docker-compose.yaml.db: Compose 部署" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="应用程序级" UseSingleDictionary="true" transferred="true" />
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add" />
+    <option name="LAST_COMMIT_MESSAGE" value="add" />
+  </component>
+  <component name="VgoProject">
+    <settings-migrated>true</settings-migrated>
+  </component>
+</project>

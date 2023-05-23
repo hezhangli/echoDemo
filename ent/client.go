@@ -10,7 +10,7 @@ import (
 
 	"echoDemo/ent/migrate"
 
-	"echoDemo/ent/user"
+	"echoDemo/ent/userdemo"
 
 	"entgo.io/ent"
 	"entgo.io/ent/dialect"
@@ -22,8 +22,8 @@ type Client struct {
 	config
 	// Schema is the client for creating, migrating and dropping schema.
 	Schema *migrate.Schema
-	// User is the client for interacting with the User builders.
-	User *UserClient
+	// UserDemo is the client for interacting with the UserDemo builders.
+	UserDemo *UserDemoClient
 }
 
 // NewClient creates a new client configured with the given options.
@@ -37,7 +37,7 @@ func NewClient(opts ...Option) *Client {
 
 func (c *Client) init() {
 	c.Schema = migrate.NewSchema(c.driver)
-	c.User = NewUserClient(c.config)
+	c.UserDemo = NewUserDemoClient(c.config)
 }
 
 type (
@@ -118,9 +118,9 @@ func (c *Client) Tx(ctx context.Context) (*Tx, error) {
 	cfg := c.config
 	cfg.driver = tx
 	return &Tx{
-		ctx:    ctx,
-		config: cfg,
-		User:   NewUserClient(cfg),
+		ctx:      ctx,
+		config:   cfg,
+		UserDemo: NewUserDemoClient(cfg),
 	}, nil
 }
 
@@ -138,16 +138,16 @@ func (c *Client) BeginTx(ctx context.Context, opts *sql.TxOptions) (*Tx, error) 
 	cfg := c.config
 	cfg.driver = &txDriver{tx: tx, drv: c.driver}
 	return &Tx{
-		ctx:    ctx,
-		config: cfg,
-		User:   NewUserClient(cfg),
+		ctx:      ctx,
+		config:   cfg,
+		UserDemo: NewUserDemoClient(cfg),
 	}, nil
 }
 
 // Debug returns a new debug-client. It's used to get verbose logging on specific operations.
 //
 //	client.Debug().
-//		User.
+//		UserDemo.
 //		Query().
 //		Count(ctx)
 func (c *Client) Debug() *Client {
@@ -169,111 +169,111 @@ func (c *Client) Close() error {
 // Use adds the mutation hooks to all the entity clients.
 // In order to add hooks to a specific client, call: `client.Node.Use(...)`.
 func (c *Client) Use(hooks ...Hook) {
-	c.User.Use(hooks...)
+	c.UserDemo.Use(hooks...)
 }
 
 // Intercept adds the query interceptors to all the entity clients.
 // In order to add interceptors to a specific client, call: `client.Node.Intercept(...)`.
 func (c *Client) Intercept(interceptors ...Interceptor) {
-	c.User.Intercept(interceptors...)
+	c.UserDemo.Intercept(interceptors...)
 }
 
 // Mutate implements the ent.Mutator interface.
 func (c *Client) Mutate(ctx context.Context, m Mutation) (Value, error) {
 	switch m := m.(type) {
-	case *UserMutation:
-		return c.User.mutate(ctx, m)
+	case *UserDemoMutation:
+		return c.UserDemo.mutate(ctx, m)
 	default:
 		return nil, fmt.Errorf("ent: unknown mutation type %T", m)
 	}
 }
 
-// UserClient is a client for the User schema.
-type UserClient struct {
+// UserDemoClient is a client for the UserDemo schema.
+type UserDemoClient struct {
 	config
 }
 
-// NewUserClient returns a client for the User from the given config.
-func NewUserClient(c config) *UserClient {
-	return &UserClient{config: c}
+// NewUserDemoClient returns a client for the UserDemo from the given config.
+func NewUserDemoClient(c config) *UserDemoClient {
+	return &UserDemoClient{config: c}
 }
 
 // Use adds a list of mutation hooks to the hooks stack.
-// A call to `Use(f, g, h)` equals to `user.Hooks(f(g(h())))`.
-func (c *UserClient) Use(hooks ...Hook) {
-	c.hooks.User = append(c.hooks.User, hooks...)
+// A call to `Use(f, g, h)` equals to `userdemo.Hooks(f(g(h())))`.
+func (c *UserDemoClient) Use(hooks ...Hook) {
+	c.hooks.UserDemo = append(c.hooks.UserDemo, hooks...)
 }
 
 // Intercept adds a list of query interceptors to the interceptors stack.
-// A call to `Intercept(f, g, h)` equals to `user.Intercept(f(g(h())))`.
-func (c *UserClient) Intercept(interceptors ...Interceptor) {
-	c.inters.User = append(c.inters.User, interceptors...)
+// A call to `Intercept(f, g, h)` equals to `userdemo.Intercept(f(g(h())))`.
+func (c *UserDemoClient) Intercept(interceptors ...Interceptor) {
+	c.inters.UserDemo = append(c.inters.UserDemo, interceptors...)
 }
 
-// Create returns a builder for creating a User entity.
-func (c *UserClient) Create() *UserCreate {
-	mutation := newUserMutation(c.config, OpCreate)
-	return &UserCreate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+// Create returns a builder for creating a UserDemo entity.
+func (c *UserDemoClient) Create() *UserDemoCreate {
+	mutation := newUserDemoMutation(c.config, OpCreate)
+	return &UserDemoCreate{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
-// CreateBulk returns a builder for creating a bulk of User entities.
-func (c *UserClient) CreateBulk(builders ...*UserCreate) *UserCreateBulk {
-	return &UserCreateBulk{config: c.config, builders: builders}
+// CreateBulk returns a builder for creating a bulk of UserDemo entities.
+func (c *UserDemoClient) CreateBulk(builders ...*UserDemoCreate) *UserDemoCreateBulk {
+	return &UserDemoCreateBulk{config: c.config, builders: builders}
 }
 
-// Update returns an update builder for User.
-func (c *UserClient) Update() *UserUpdate {
-	mutation := newUserMutation(c.config, OpUpdate)
-	return &UserUpdate{config: c.config, hooks: c.Hooks(), mutation: mutation}
+// Update returns an update builder for UserDemo.
+func (c *UserDemoClient) Update() *UserDemoUpdate {
+	mutation := newUserDemoMutation(c.config, OpUpdate)
+	return &UserDemoUpdate{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
 // UpdateOne returns an update builder for the given entity.
-func (c *UserClient) UpdateOne(u *User) *UserUpdateOne {
-	mutation := newUserMutation(c.config, OpUpdateOne, withUser(u))
-	return &UserUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+func (c *UserDemoClient) UpdateOne(ud *UserDemo) *UserDemoUpdateOne {
+	mutation := newUserDemoMutation(c.config, OpUpdateOne, withUserDemo(ud))
+	return &UserDemoUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
 // UpdateOneID returns an update builder for the given id.
-func (c *UserClient) UpdateOneID(id string) *UserUpdateOne {
-	mutation := newUserMutation(c.config, OpUpdateOne, withUserID(id))
-	return &UserUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
+func (c *UserDemoClient) UpdateOneID(id string) *UserDemoUpdateOne {
+	mutation := newUserDemoMutation(c.config, OpUpdateOne, withUserDemoID(id))
+	return &UserDemoUpdateOne{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
-// Delete returns a delete builder for User.
-func (c *UserClient) Delete() *UserDelete {
-	mutation := newUserMutation(c.config, OpDelete)
-	return &UserDelete{config: c.config, hooks: c.Hooks(), mutation: mutation}
+// Delete returns a delete builder for UserDemo.
+func (c *UserDemoClient) Delete() *UserDemoDelete {
+	mutation := newUserDemoMutation(c.config, OpDelete)
+	return &UserDemoDelete{config: c.config, hooks: c.Hooks(), mutation: mutation}
 }
 
 // DeleteOne returns a builder for deleting the given entity.
-func (c *UserClient) DeleteOne(u *User) *UserDeleteOne {
-	return c.DeleteOneID(u.ID)
+func (c *UserDemoClient) DeleteOne(ud *UserDemo) *UserDemoDeleteOne {
+	return c.DeleteOneID(ud.ID)
 }
 
 // DeleteOneID returns a builder for deleting the given entity by its id.
-func (c *UserClient) DeleteOneID(id string) *UserDeleteOne {
-	builder := c.Delete().Where(user.ID(id))
+func (c *UserDemoClient) DeleteOneID(id string) *UserDemoDeleteOne {
+	builder := c.Delete().Where(userdemo.ID(id))
 	builder.mutation.id = &id
 	builder.mutation.op = OpDeleteOne
-	return &UserDeleteOne{builder}
+	return &UserDemoDeleteOne{builder}
 }
 
-// Query returns a query builder for User.
-func (c *UserClient) Query() *UserQuery {
-	return &UserQuery{
+// Query returns a query builder for UserDemo.
+func (c *UserDemoClient) Query() *UserDemoQuery {
+	return &UserDemoQuery{
 		config: c.config,
-		ctx:    &QueryContext{Type: TypeUser},
+		ctx:    &QueryContext{Type: TypeUserDemo},
 		inters: c.Interceptors(),
 	}
 }
 
-// Get returns a User entity by its id.
-func (c *UserClient) Get(ctx context.Context, id string) (*User, error) {
-	return c.Query().Where(user.ID(id)).Only(ctx)
+// Get returns a UserDemo entity by its id.
+func (c *UserDemoClient) Get(ctx context.Context, id string) (*UserDemo, error) {
+	return c.Query().Where(userdemo.ID(id)).Only(ctx)
 }
 
 // GetX is like Get, but panics if an error occurs.
-func (c *UserClient) GetX(ctx context.Context, id string) *User {
+func (c *UserDemoClient) GetX(ctx context.Context, id string) *UserDemo {
 	obj, err := c.Get(ctx, id)
 	if err != nil {
 		panic(err)
@@ -282,36 +282,36 @@ func (c *UserClient) GetX(ctx context.Context, id string) *User {
 }
 
 // Hooks returns the client hooks.
-func (c *UserClient) Hooks() []Hook {
-	return c.hooks.User
+func (c *UserDemoClient) Hooks() []Hook {
+	return c.hooks.UserDemo
 }
 
 // Interceptors returns the client interceptors.
-func (c *UserClient) Interceptors() []Interceptor {
-	return c.inters.User
+func (c *UserDemoClient) Interceptors() []Interceptor {
+	return c.inters.UserDemo
 }
 
-func (c *UserClient) mutate(ctx context.Context, m *UserMutation) (Value, error) {
+func (c *UserDemoClient) mutate(ctx context.Context, m *UserDemoMutation) (Value, error) {
 	switch m.Op() {
 	case OpCreate:
-		return (&UserCreate{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
+		return (&UserDemoCreate{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
 	case OpUpdate:
-		return (&UserUpdate{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
+		return (&UserDemoUpdate{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
 	case OpUpdateOne:
-		return (&UserUpdateOne{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
+		return (&UserDemoUpdateOne{config: c.config, hooks: c.Hooks(), mutation: m}).Save(ctx)
 	case OpDelete, OpDeleteOne:
-		return (&UserDelete{config: c.config, hooks: c.Hooks(), mutation: m}).Exec(ctx)
+		return (&UserDemoDelete{config: c.config, hooks: c.Hooks(), mutation: m}).Exec(ctx)
 	default:
-		return nil, fmt.Errorf("ent: unknown User mutation op: %q", m.Op())
+		return nil, fmt.Errorf("ent: unknown UserDemo mutation op: %q", m.Op())
 	}
 }
 
 // hooks and interceptors per client, for fast access.
 type (
 	hooks struct {
-		User []ent.Hook
+		UserDemo []ent.Hook
 	}
 	inters struct {
-		User []ent.Interceptor
+		UserDemo []ent.Interceptor
 	}
 )

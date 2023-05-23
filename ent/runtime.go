@@ -4,7 +4,7 @@ package ent
 
 import (
 	"echoDemo/ent/schema"
-	"echoDemo/ent/user"
+	"echoDemo/ent/userdemo"
 	"time"
 )
 
@@ -12,20 +12,20 @@ import (
 // (default values, validators, hooks and policies) and stitches it
 // to their package variables.
 func init() {
-	userFields := schema.User{}.Fields()
-	_ = userFields
-	// userDescCreatedAt is the schema descriptor for created_at field.
-	userDescCreatedAt := userFields[10].Descriptor()
-	// user.DefaultCreatedAt holds the default value on creation for the created_at field.
-	user.DefaultCreatedAt = userDescCreatedAt.Default.(func() time.Time)
-	// userDescUpdatedAt is the schema descriptor for updated_at field.
-	userDescUpdatedAt := userFields[11].Descriptor()
-	// user.DefaultUpdatedAt holds the default value on creation for the updated_at field.
-	user.DefaultUpdatedAt = userDescUpdatedAt.Default.(func() time.Time)
-	// user.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
-	user.UpdateDefaultUpdatedAt = userDescUpdatedAt.UpdateDefault.(func() time.Time)
-	// userDescID is the schema descriptor for id field.
-	userDescID := userFields[0].Descriptor()
-	// user.DefaultID holds the default value on creation for the id field.
-	user.DefaultID = userDescID.Default.(func() string)
+	userdemoFields := schema.UserDemo{}.Fields()
+	_ = userdemoFields
+	// userdemoDescCreatedAt is the schema descriptor for created_at field.
+	userdemoDescCreatedAt := userdemoFields[4].Descriptor()
+	// userdemo.DefaultCreatedAt holds the default value on creation for the created_at field.
+	userdemo.DefaultCreatedAt = userdemoDescCreatedAt.Default.(func() time.Time)
+	// userdemoDescUpdatedAt is the schema descriptor for updated_at field.
+	userdemoDescUpdatedAt := userdemoFields[5].Descriptor()
+	// userdemo.DefaultUpdatedAt holds the default value on creation for the updated_at field.
+	userdemo.DefaultUpdatedAt = userdemoDescUpdatedAt.Default.(func() time.Time)
+	// userdemo.UpdateDefaultUpdatedAt holds the default value on update for the updated_at field.
+	userdemo.UpdateDefaultUpdatedAt = userdemoDescUpdatedAt.UpdateDefault.(func() time.Time)
+	// userdemoDescID is the schema descriptor for id field.
+	userdemoDescID := userdemoFields[0].Descriptor()
+	// userdemo.DefaultID holds the default value on creation for the id field.
+	userdemo.DefaultID = userdemoDescID.Default.(func() string)
 }

@@ -8,30 +8,24 @@ import (
 )
 
 var (
-	// UsersColumns holds the columns for the "users" table.
-	UsersColumns = []*schema.Column{
+	// UserDemosColumns holds the columns for the "user_demos" table.
+	UserDemosColumns = []*schema.Column{
 		{Name: "id", Type: field.TypeString},
-		{Name: "hash", Type: field.TypeString},
 		{Name: "name", Type: field.TypeString},
-		{Name: "qiniu_file_path", Type: field.TypeString},
-		{Name: "qiniu_tx_path", Type: field.TypeString},
-		{Name: "tags", Type: field.TypeJSON},
-		{Name: "user_id", Type: field.TypeString},
-		{Name: "wx_id", Type: field.TypeString},
-		{Name: "corp_id", Type: field.TypeString},
-		{Name: "dept_id", Type: field.TypeString},
+		{Name: "age", Type: field.TypeString},
+		{Name: "gender", Type: field.TypeBool},
 		{Name: "created_at", Type: field.TypeTime},
 		{Name: "updated_at", Type: field.TypeTime},
 	}
-	// UsersTable holds the schema information for the "users" table.
-	UsersTable = &schema.Table{
-		Name:       "users",
-		Columns:    UsersColumns,
-		PrimaryKey: []*schema.Column{UsersColumns[0]},
+	// UserDemosTable holds the schema information for the "user_demos" table.
+	UserDemosTable = &schema.Table{
+		Name:       "user_demos",
+		Columns:    UserDemosColumns,
+		PrimaryKey: []*schema.Column{UserDemosColumns[0]},
 	}
 	// Tables holds all the tables in the schema.
 	Tables = []*schema.Table{
-		UsersTable,
+		UserDemosTable,
 	}
 )
 

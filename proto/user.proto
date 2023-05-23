@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package echo.v1;
+
+option go_package = "github.com/hezhangli/laodon/echoDemo/user/pb";
+
+service UserService {
+        rpc CreateUser(CreateUserRequest) returns (CreateUserResponse);
+}
+
+message CreateUserRequest {
+
+}
+
+message CreateUserResponse {
+
+}
